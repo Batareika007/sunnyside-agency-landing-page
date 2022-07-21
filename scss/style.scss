@@ -180,11 +180,11 @@ main {
     .box {
         min-height: 600px;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
 
 
         &__inner {
-            display: flex;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             padding: 0 1rem;
@@ -197,6 +197,48 @@ main {
                 gap: 40px;
                 max-width: 440px;
             }
+
+            &-footer {
+                text-transform: uppercase;
+                font-weight: 900;
+                z-index: 10;
+
+                &-yellow,
+                &-red {
+                    position: relative;
+                    color: $headingDark;
+                    display: inline-block;
+
+                    &::after {
+                        z-index: -1;
+                        display: inline-block;
+                        position: relative;
+                        content: '';
+                        border-radius: 50px;
+                        top: -1.1rem;
+                        left: -5%;
+                        width: 110%;
+                        height: 10px;
+                        opacity: 0.3;
+
+                    }
+
+                    &:hover::after {
+                        opacity: 1;
+                    }
+                }
+
+                &-yellow::after {
+                    background-color: yellow;
+                }
+
+                &-red::after {
+                    background-color: red;
+                }
+
+
+            }
+
         }
 
         h2 {
@@ -204,25 +246,39 @@ main {
             font-weight: 900;
         }
 
-        a {
-            color: $headingDark;
+        p {
+            line-height: 170%;
+            // color: $paragrphText;
+            color: $textLight;
         }
 
     }
 
 
     .graphic {
-        background: url(../images/desktop/image-graphic-design.jpg);
+        background-image: url(../images/desktop/image-graphic-design.jpg);
+
         color: $graphicDisText;
+
+        p {
+            color: $graphicDisText;
+        }
     }
 
     .photographers {
-        background: url(../images/desktop/image-photography.jpg);
+        background-image: url(../images/desktop/image-photography.jpg);
+
+
         color: $photofraphyText;
+
+        p {
+            color: $photofraphyText;
+        }
     }
 
     .graphic,
     .photographers {
+        background-repeat: no-repeat;
         background-size: cover;
         align-items: flex-end;
         text-align: center;
@@ -235,6 +291,7 @@ main {
             }
 
             p {
+                max-width: 400px;
                 line-height: 26px;
             }
         }
@@ -280,11 +337,16 @@ main {
 
     &__item {
         max-width: 340px;
+        min-height: 350px;
         flex: 1 1 auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 65px;
     }
 
     &__img {
-        margin: 0 auto 65px;
         border-radius: 100%;
         overflow: hidden;
         height: 70px;
@@ -296,8 +358,11 @@ main {
     }
 
     &__text {
-        margin-bottom: 65px;
         color: $headingLight;
+    }
+
+    &__footer {
+        margin-top: auto;
     }
 
     &__name {
@@ -317,31 +382,29 @@ aside {
         flex-wrap: wrap;
 
         &__item {
-            flex: 1 1 120px;
+            min-width: 150px;
+            flex: 1 1 auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
 
             &:nth-child(1) {
-                background: url(../images/desktop/image-gallery-milkbottles.jpg);
-                background-size: cover;
-                background-repeat: no-repeat;
+                background-image: url(../images/desktop/image-gallery-milkbottles.jpg);
             }
 
             &:nth-child(2) {
-                background: url(../images/desktop/image-gallery-orange.jpg);
-                background-size: cover;
-                background-repeat: no-repeat;
+                background-image: url(../images/desktop/image-gallery-orange.jpg);
+
             }
 
             &:nth-child(3) {
-                background: url(../images/desktop/image-gallery-cone.jpg);
-                background-size: cover;
-                background-repeat: no-repeat;
+                background-image: url(../images/desktop/image-gallery-cone.jpg);
             }
 
             &:nth-child(4) {
-                background: url(../images/desktop/image-gallery-sugarcubes.jpg);
-                background-size: cover;
-                background-repeat: no-repeat;
+                background-image: url(../images/desktop/image-gallery-sugarcubes.jpg);
             }
+
         }
     }
 }
@@ -393,6 +456,8 @@ aside {
 @media screen and (max-width:768px) {
 
     .header {
+        background-image: url(../images/mobile/image-header.jpg);
+
         h1 {
             font-size: 30px;
         }
@@ -403,16 +468,43 @@ aside {
     }
 
     ul.nav__links {
+        z-index: 0;
+        // overflow-y: hidden;
         padding: 2rem;
-        width: 80%;
+        width: 100%;
         position: absolute;
-        top: 50px;
+        top: 85px;
         left: 50%;
         transform: translate(-50%);
         color: $headingLight;
         background-color: $white;
         flex-direction: column;
         display: none;
+
+        &::after {
+            z-index: 10;
+            position: absolute;
+            top: -32px;
+            right: 0;
+            content: '';
+            height: 40px;
+            width: 32px;
+            background-color: $white;
+
+        }
+
+        &::before {
+            z-index: 20;
+            position: absolute;
+            top: -54px;
+            right: 10px;
+            content: '';
+            height: 50px;
+            width: 32px;
+            // background-color: $white;
+            background-color: #3DBEFF;
+            transform: rotate(45deg);
+        }
 
         li:last-child {
             background-color: $yellow;
@@ -425,26 +517,105 @@ aside {
     }
 
     .hamburger {
+        cursor: pointer;
         display: block;
     }
 
     main {
 
+        .box {
+            text-align: center;
+
+            &__inner {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
         .graphic {
-            background: url(../images/mobile/image-graphic-design.jpg);
-            color: $graphicDisText;
+            background-image: url(../images/mobile/image-graphic-design.jpg);
+
         }
 
         .photographers {
-            background: url(../images/mobile/image-photography.jpg);
-            color: $photofraphyText;
+            background-image: url(../images/mobile/image-photography.jpg);
+
         }
 
         .graphic,
         .photographers {
-            background-size: 100%;
-            background-position: center top;
+            background-position: 100%;
             min-height: 470px;
+            padding-bottom: 50px;
+
+            h2 {
+                font-size: 22px;
+                margin-bottom: 28px;
+            }
+
+            p {
+                font-size: 14px;
+                letter-spacing: -0.05em;
+            }
+        }
+
+        .first-img {
+            background-image: url(../images/mobile/image-transform.jpg);
+
+        }
+
+        .second-img {
+            background-image: url(../images/mobile/image-stand-out.jpg);
+        }
+    }
+
+    aside {
+        .images__item {
+
+
+            &:nth-child(1) {
+                background-image: url(../images/mobile/image-gallery-milkbottles.jpg);
+
+            }
+
+            &:nth-child(2) {
+                background-image: url(../images/mobile/image-gallery-orange.jpg);
+            }
+
+            &:nth-child(3) {
+                background-image: url(../images/mobile/image-gallery-cone.jpg);
+            }
+
+            &:nth-child(4) {
+                background-image: url(../images/mobile/image-gallery-sugar-cubes.jpg);
+            }
+
+        }
+    }
+
+    .testimonial__inner {
+        padding: 53px 0 70px;
+
+        h3 {
+            font-size: 14px;
+            letter-spacing: 0.18em;
+            margin-bottom: 45px;
+        }
+    }
+
+    .card {
+        gap: 55px;
+
+        &__item {
+            gap: 30px;
         }
     }
 }
