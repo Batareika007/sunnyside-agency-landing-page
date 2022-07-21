@@ -40,6 +40,13 @@ img {
           justify-content: center;
 }
 
+.flex-row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
 /* remove 'X' from input box to clear the text*/
 input::-ms-clear {
   display: none;
@@ -104,6 +111,7 @@ ul li {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   color: hsl(0deg, 0%, 100%);
   height: 100vh;
 }
@@ -166,14 +174,35 @@ ul li {
   text-align: center;
 }
 
+.hamburger {
+  display: none;
+}
+
 main .box {
-  height: 600px;
+  min-height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-main .box__content {
-  padding: 120px;
+main .box__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 384.5px;
+          flex: 1 1 384.5px;
+  min-height: 240px;
+}
+main .box__inner_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,15 +210,8 @@ main .box__content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   gap: 40px;
-}
-main .box__content, main .box__img {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  max-width: 440px;
 }
 main .box h2 {
   font-size: 3rem;
@@ -197,23 +219,6 @@ main .box h2 {
 }
 main .box a {
   color: hsl(212deg, 27%, 19%);
-}
-main .box__inner {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
-  padding: 115px;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 main .graphic {
   background: url(../images/desktop/image-graphic-design.jpg);
@@ -223,41 +228,66 @@ main .photographers {
   background: url(../images/desktop/image-photography.jpg);
   color: hsl(198deg, 62%, 26%);
 }
-main .bottom {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+main .graphic,
+main .photographers {
+  background-size: cover;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  text-align: center;
+  padding-bottom: 64px;
 }
-main .top-img {
+main .graphic__content h2,
+main .photographers__content h2 {
+  font-size: 28px;
+  margin-bottom: 36px;
+}
+main .graphic__content p,
+main .photographers__content p {
+  line-height: 26px;
+}
+main .first-img {
   background: url(../images/desktop/image-transform.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
-main .bottom-img {
+main .second-img {
   background: url(../images/desktop/image-stand-out.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-article {
-  padding: 3rem 0;
+.testimonial__inner {
+  padding: 160px 0;
 }
-article h3 {
+.testimonial__inner h3 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: hsl(232deg, 10%, 55%);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0.3em;
+  margin-bottom: 80px;
 }
 
-.carusel {
+.card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 3rem;
 }
-
-.card {
-  padding: 2rem;
+.card__item {
+  max-width: 340px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 .card__img {
   margin: 0 auto 65px;
@@ -271,9 +301,14 @@ article h3 {
 }
 .card__text {
   margin-bottom: 65px;
+  color: hsl(232deg, 10%, 55%);
 }
 .card__name {
   font-weight: 900;
+  margin-bottom: 1rem;
+}
+.card__profeshion {
+  color: hsl(210deg, 4%, 67%);
 }
 
 aside .images {
@@ -341,4 +376,53 @@ aside .images__item:nth-child(4) {
 }
 .footer__links:first-of-type {
   margin-bottom: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .header h1 {
+    font-size: 30px;
+  }
+  .nav {
+    position: relative;
+  }
+  ul.nav__links {
+    padding: 2rem;
+    width: 80%;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+    color: hsl(232deg, 10%, 55%);
+    background-color: hsl(0deg, 0%, 100%);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: none;
+  }
+  ul.nav__links li:last-child {
+    background-color: hsl(51deg, 100%, 49%);
+  }
+  ul.nav__links li:last-child:hover {
+    color: hsl(212deg, 27%, 19%);
+    background-color: hsl(51deg, 100%, 49%);
+  }
+  .hamburger {
+    display: block;
+  }
+  main .graphic {
+    background: url(../images/mobile/image-graphic-design.jpg);
+    color: hsl(167deg, 40%, 24%);
+  }
+  main .photographers {
+    background: url(../images/mobile/image-photography.jpg);
+    color: hsl(198deg, 62%, 26%);
+  }
+  main .graphic,
+main .photographers {
+    background-size: 100%;
+    background-position: center top;
+    min-height: 470px;
+  }
 }

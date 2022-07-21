@@ -38,6 +38,10 @@ img {
     justify-content: center;
 }
 
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
 /* remove 'X' from input box to clear the text*/
 
 input::-ms-clear {
@@ -110,6 +114,7 @@ ul li {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
     color: $white;
     height: 100vh;
 
@@ -165,26 +170,33 @@ ul li {
     }
 }
 
+.hamburger {
+    display: none;
+}
+
 // ------------  main
 
 main {
     .box {
-        height: 600px;
+        min-height: 600px;
         display: flex;
+        flex-wrap: wrap;
 
 
-        &__content {
-            padding: 120px;
+        &__inner {
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            gap: 40px;
+            align-items: center;
+            padding: 0 1rem;
+            flex: 1 1 384.5px;
+            min-height: 240px;
 
-        }
-
-        &__content,
-        &__img {
-            flex: 1 1 50%;
+            &_content {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                max-width: 440px;
+            }
         }
 
         h2 {
@@ -196,15 +208,8 @@ main {
             color: $headingDark;
         }
 
-        &__inner {
-            flex: 1 1 50%;
-            padding: 115px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
     }
+
 
     .graphic {
         background: url(../images/desktop/image-graphic-design.jpg);
@@ -216,19 +221,32 @@ main {
         color: $photofraphyText;
     }
 
-    .bottom {
-        flex-direction: row-reverse;
+    .graphic,
+    .photographers {
+        background-size: cover;
+        align-items: flex-end;
+        text-align: center;
+        padding-bottom: 64px;
+
+        &__content {
+            h2 {
+                font-size: 28px;
+                margin-bottom: 36px;
+            }
+
+            p {
+                line-height: 26px;
+            }
+        }
     }
 
-
-
-    .top-img {
+    .first-img {
         background: url(../images/desktop/image-transform.jpg);
         background-repeat: no-repeat;
         background-size: cover;
     }
 
-    .bottom-img {
+    .second-img {
         background: url(../images/desktop/image-stand-out.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -236,23 +254,34 @@ main {
 
 }
 
-article {
-    padding: 3rem 0;
+
+
+.testimonial__inner {
+    padding: 160px 0;
 
     h3 {
         text-align: center;
-        font-size: 3rem;
+        font-size: 1.5rem;
         color: $headingLight;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 23px;
+        letter-spacing: 0.3em;
+        margin-bottom: 80px;
     }
 }
 
-.carusel {
+.card {
     display: flex;
     text-align: center;
-}
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 3rem;
 
-.card {
-    padding: 2rem;
+    &__item {
+        max-width: 340px;
+        flex: 1 1 auto;
+    }
 
     &__img {
         margin: 0 auto 65px;
@@ -267,15 +296,19 @@ article {
     }
 
     &__text {
-
         margin-bottom: 65px;
+        color: $headingLight;
     }
 
     &__name {
         font-weight: 900;
+        margin-bottom: 1rem;
+    }
+
+    &__profeshion {
+        color: $textLight;
     }
 }
-
 
 aside {
     .images {
@@ -353,5 +386,65 @@ aside {
             margin-bottom: 80px;
         }
 
+    }
+}
+
+
+@media screen and (max-width:768px) {
+
+    .header {
+        h1 {
+            font-size: 30px;
+        }
+    }
+
+    .nav {
+        position: relative;
+    }
+
+    ul.nav__links {
+        padding: 2rem;
+        width: 80%;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%);
+        color: $headingLight;
+        background-color: $white;
+        flex-direction: column;
+        display: none;
+
+        li:last-child {
+            background-color: $yellow;
+
+            &:hover {
+                color: $headingDark;
+                background-color: $yellow;
+            }
+        }
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    main {
+
+        .graphic {
+            background: url(../images/mobile/image-graphic-design.jpg);
+            color: $graphicDisText;
+        }
+
+        .photographers {
+            background: url(../images/mobile/image-photography.jpg);
+            color: $photofraphyText;
+        }
+
+        .graphic,
+        .photographers {
+            background-size: 100%;
+            background-position: center top;
+            min-height: 470px;
+        }
     }
 }

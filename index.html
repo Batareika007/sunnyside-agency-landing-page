@@ -28,18 +28,21 @@
     <div class="container">
       <div class="header__top">
 
-        <nav>
+        <nav class="nav">
+          <!-- logo -->
           <div class="logo">
             <img src="images/logo.svg" alt="logo">
           </div>
-          <ul>
+          <!-- nav links -->
+          <ul class="nav__links">
             <li>About</li>
             <li>Services</li>
             <li>Projects</li>
             <li class="heading">Contact</li>
           </ul>
+          <!-- nam btn -->
+          <div class="hamburger"><img src="images/icon-hamburger.svg" alt="hamburger menu"></div>
         </nav>
-        <div class="hamburger"></div>
       </div>
 
 
@@ -52,20 +55,30 @@
 
 
   <main>
-    <div class="container">
 
-      <section class="box top">
-        <div class="box__content">
+    <!-- ------------------- box first -->
+    <section class="box">
+
+      <div class="box__inner">
+        <div class="box__inner_content">
           <h2 class="heading"> Transform your brand</h2>
           <p>We are a full-service creative agency specializing in helping brands grow fast.
             Engage your clients through compelling visuals that do most of the marketing for you.</p>
           <a class="heading" href="#">Learn more</a>
         </div>
-        <div class="box__img top-img"></div>
-      </section>
+      </div>
 
-      <section class="box bottom">
-        <div class="box__content">
+      <div class="box__inner first-img"></div>
+
+    </section>
+
+    <!-- ------------------- box second -->
+
+    <section class="box flex-row-reverse">
+
+      <div class="box__inner">
+        <div class="box__inner_content">
+
           <h2 class="heading">Stand out to the right audience</h2>
           <p>Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters,
             we’ll
@@ -73,66 +86,89 @@
             and extend your brand in digital places.</p>
           <a class="heading" href="#">Learn more</a>
         </div>
-        <div class="box__img bottom-img"></div>
-      </section>
+      </div>
 
-      <section>
-        <div class="box">
-          <div class="box__inner graphic">
+      <div class="box__inner second-img"></div>
+
+    </section>
+
+
+    <!--  graphic and photography -->
+    <section>
+      <div class="box">
+        <div class="box__inner graphic">
+          <div class="graphic__content">
 
             <h2 class="heading">Graphic design</h2>
             <p>Great design makes you memorable. We deliver artwork that underscores your brand message and captures
               potential
               clients’ attention.</p>
           </div>
-          <div class="box__inner photographers">
+        </div>
+
+        <div class="box__inner photographers">
+          <div class="photographers__content">
+
             <h2 class="heading">Photography</h2>
             <p>Increase your credibility by getting the most stunning, high-quality photos that improve your business
               image.
             </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- testimonials -->
+    <!-- testimonials -->
 
 
-      <article>
-        <h3 class="heading">Client testimonials</h3>
-        <div class="carusel">
-          <div class="card">
-            <div class="card__img"> <img src="images/image-emily.jpg" alt="emily"></div>
-            <p class="card__text"> We put our trust in Sunnyside and they delivered, making sure our needs were met and
-              deadlines were always
-              hit.
-            </p>
-            <h4 class="card__name heading">Emily R.</h4>
-            <div class="card__profeshion">Marketing Director</div>
-          </div>
+    <article>
+
+      <div class="testimonila">
+
+        <div class="testimonial__inner">
+
+          <h3 class="heading">Client testimonials</h3>
 
           <div class="card">
-            <div class="card__img"><img src="images/image-thomas.jpg" alt="Thomas"></div>
-            <p class="card__text">
-              Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and
-              enjoyable
-              experience.
-            </p>
-            <h4 class="card__name heading">Thomas S.</h4>
-            <div class="card__profeshion">Chief Operating Officer</div>
-          </div>
 
-          <div class="card">
-            <div class="card__img"><img src="images/image-jennie.jpg" alt="Jennie"></div>
-            <p class="card__text">
-              Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!
-            </p>
-            <h4 class="card__name heading">Jennie F.</h4>
-            <div class="card__profeshion">Business Owner</div>
-          </div>
 
+            <div class="card__item">
+              <div class="card__img"> <img src="images/image-emily.jpg" alt="emily"></div>
+              <p class="card__text"> We put our trust in Sunnyside and they delivered, making sure our needs were met
+                and
+                deadlines were always
+                hit.
+              </p>
+              <h4 class="card__name heading">Emily R.</h4>
+              <div class="card__profeshion">Marketing Director</div>
+            </div>
+
+            <div class="card__item">
+              <div class="card__img"><img src="images/image-thomas.jpg" alt="Thomas"></div>
+              <p class="card__text">
+                Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and
+                enjoyable
+                experience.
+              </p>
+              <h4 class="card__name heading">Thomas S.</h4>
+              <div class="card__profeshion">Chief Operating Officer</div>
+            </div>
+
+            <div class="card__item">
+              <div class="card__img"><img src="images/image-jennie.jpg" alt="Jennie"></div>
+              <p class="card__text">
+                Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!
+              </p>
+              <h4 class="card__name heading">Jennie F.</h4>
+              <div class="card__profeshion">Business Owner</div>
+            </div>
+
+          </div>
         </div>
-      </article>
-    </div>
+
+      </div>
+    </article>
+
   </main>
 
 
@@ -156,7 +192,7 @@
       <li>About</li>
       <li>Services</li>
       <li>Projects</li>
-      <li>Contact</li>
+      <!-- <li>Contact</li> -->
     </ul>
     <ul class="footer__links">
       <li class="footer__links_facebook"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
