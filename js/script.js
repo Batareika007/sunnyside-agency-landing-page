@@ -13,3 +13,13 @@ hamburgerBtn.addEventListener('click', () => {
         console.log('menu closed')
     }
 })
+
+const headerArrowImg = document.querySelector('.header__bottom img')
+
+gsap.to(headerArrowImg, {
+    y: 50,
+    repeat: -1,
+    duration: 1.5,
+    yoyoEase: 'expo.out',
+    ease: "expo.in"
+})
