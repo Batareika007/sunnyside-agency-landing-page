@@ -86,6 +86,12 @@ body {
     font-size: 18px;
     font-family: 'Barlow',
         sans-serif;
+    width: 100%;
+}
+
+.overflow {
+    overflow-x: hidden;
+
 }
 
 ul li {
@@ -280,6 +286,7 @@ main {
     .photographers {
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center center;
         align-items: flex-end;
         text-align: center;
         padding-bottom: 64px;
@@ -299,12 +306,14 @@ main {
 
     .first-img {
         background: url(../images/desktop/image-transform.jpg);
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .second-img {
         background: url(../images/desktop/image-stand-out.jpg);
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -418,11 +427,13 @@ aside {
     &__logo {
         margin: 0 auto 45px;
         transform: scale(1.5);
+        max-width: 100%;
     }
 
     &__links {
         justify-content: center;
         display: flex;
+        flex-wrap: wrap;
         gap: 2rem;
 
         li {
@@ -457,6 +468,7 @@ aside {
 
     .header {
         background-image: url(../images/mobile/image-header.jpg);
+        background-attachment: local;
 
         h1 {
             font-size: 30px;
@@ -552,7 +564,7 @@ aside {
 
         .graphic,
         .photographers {
-            background-position: 100%;
+            // background-position: 100%;
             min-height: 470px;
             padding-bottom: 50px;
 
@@ -612,10 +624,15 @@ aside {
     }
 
     .card {
-        gap: 55px;
+        gap: 50px;
 
         &__item {
             gap: 30px;
+            min-height: auto;
+        }
+
+        &__footer {
+            margin-top: 0;
         }
     }
 }

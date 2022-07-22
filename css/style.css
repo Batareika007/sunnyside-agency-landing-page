@@ -87,6 +87,11 @@ select {
 body {
   font-size: 18px;
   font-family: "Barlow", sans-serif;
+  width: 100%;
+}
+
+.overflow {
+  overflow-x: hidden;
 }
 
 ul li {
@@ -270,6 +275,7 @@ main .graphic,
 main .photographers {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -288,11 +294,13 @@ main .photographers__content p {
 }
 main .first-img {
   background: url(../images/desktop/image-transform.jpg);
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 main .second-img {
   background: url(../images/desktop/image-stand-out.jpg);
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -405,6 +413,7 @@ aside .images__item:nth-child(4) {
   margin: 0 auto 45px;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
+  max-width: 100%;
 }
 .footer__links {
   -webkit-box-pack: center;
@@ -413,6 +422,8 @@ aside .images__item:nth-child(4) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 2rem;
 }
 .footer__links li {
@@ -431,6 +442,7 @@ aside .images__item:nth-child(4) {
 @media screen and (max-width: 768px) {
   .header {
     background-image: url(../images/mobile/image-header.jpg);
+    background-attachment: local;
   }
   .header h1 {
     font-size: 30px;
@@ -509,7 +521,6 @@ aside .images__item:nth-child(4) {
   }
   main .graphic,
 main .photographers {
-    background-position: 100%;
     min-height: 470px;
     padding-bottom: 50px;
   }
@@ -550,9 +561,13 @@ main .photographers p {
     margin-bottom: 45px;
   }
   .card {
-    gap: 55px;
+    gap: 50px;
   }
   .card__item {
     gap: 30px;
+    min-height: auto;
+  }
+  .card__footer {
+    margin-top: 0;
   }
 }
